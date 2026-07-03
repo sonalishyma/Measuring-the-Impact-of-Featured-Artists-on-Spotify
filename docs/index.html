@@ -20,10 +20,10 @@
       <a href="#objective">Objective</a>
       <a href="#dataset">Data</a>
       <a href="#eda">EDA</a>
-      <a href="#comparison">Group Comparison</a>
+      <a href="#comparison">Comparison</a>
       <a href="#regression">Regression</a>
       <a href="#decomposition">Decomposition</a>
-      <a href="#overclaim">The Overclaim</a>
+      <a href="#overclaim">Overclaim</a>
       <a href="#credits">Credits</a>
     </div>
   </div>
@@ -63,7 +63,7 @@
       <div class="stat-tile"><div class="v">99%</div><div class="l">of the raw gap is genre composition</div><div class="sub">not a collaboration premium</div></div>
       <div class="stat-tile"><div class="v">+0.28</div><div class="l">adjusted effect, controls + genre FE</div><div class="sub">95% CI &minus;0.01 to +0.57, p = 0.06</div></div>
     </div>
-    <div class="callout">
+    <div class="callout research-question">
       <span class="k">Research question</span>
       <p>Do tracks featuring at least one other artist have higher Spotify popularity than solo tracks, controlling for duration, explicitness, and the audio features energy and danceability &mdash; and, in the fuller specification, valence, loudness, and genre?</p>
     </div>
@@ -185,8 +185,8 @@
     <h2>Popularity is skewed and zero-inflated</h2>
     <p class="lede">A large share of tracks sit at exactly 0 popularity &mdash; low or no recent engagement. That shapes every test downstream: a rank-based test instead of a t-test, and a dedicated robustness check that excludes the zero spike.</p>
     <figure class="figure">
-      <img src="assets/figures/fig1_eda_distributions.png" alt="Distributions of popularity, duration, energy, and danceability">
-      <figcaption>Distributions of the outcome (popularity) and key controls (duration, energy, danceability). Generated directly by the executed analysis notebook.</figcaption>
+      <div class="chart-panel" id="chart-fig1"></div>
+      <figcaption>Distributions of the outcome (popularity) and key controls (duration, energy, danceability). Hover any bar or axis label for details. Generated directly from the executed analysis notebook's data.</figcaption>
     </figure>
   </div>
 </section>
@@ -197,8 +197,8 @@
     <h2>The original analysis, reproduced &mdash; plus the effect sizes it omitted</h2>
     <p class="lede">Mann&ndash;Whitney U test (popularity is non-normal), plus rank-biserial r and Cohen's d, which the original presentation never reported.</p>
     <figure class="figure">
-      <img src="assets/figures/fig2_group_comparison.png" alt="Popularity distribution and boxplot comparing featured vs solo tracks">
-      <figcaption>Featured tracks sit slightly higher &mdash; but "slightly" is doing a lot of work here.</figcaption>
+      <div class="chart-panel" id="chart-fig2"></div>
+      <figcaption>Featured tracks sit slightly higher &mdash; but "slightly" is doing a lot of work here. Hover the bars or the boxes for exact values.</figcaption>
     </figure>
     <div class="stat-grid">
       <div class="stat-tile"><div class="v">+1.41</div><div class="l">raw difference in means</div><div class="sub">95% CI [+1.09, +1.73]</div></div>
@@ -237,8 +237,8 @@
     <h2>Genre composition, not a collaboration premium</h2>
     <p class="lede">Genre fixed effects take R&sup2; from ~0.01 to ~0.33 and cut the featured-artist coefficient by roughly three quarters. An exact shift-share decomposition splits the raw gap into genre composition and the within-genre gap &mdash; the two terms sum to the raw gap with no residual, by construction.</p>
     <figure class="figure">
-      <img src="assets/figures/fig3_genre_composition.png" alt="Bar chart decomposing the raw gap into genre composition and within-genre gap, plus a genre landscape scatterplot">
-      <figcaption>Left: the raw +1.41 gap decomposed. Right: genres plotted by featured-track share vs. mean popularity &mdash; collaborations concentrate in genres (dancehall, hip-hop, reggaeton) that are already more popular.</figcaption>
+      <div class="chart-panel" id="chart-fig3"></div>
+      <figcaption>Left: the raw +1.41 gap decomposed. Right: every genre plotted by featured-track share vs. mean popularity, bubble size = track count &mdash; hover a bubble for the genre name. Collaborations concentrate in genres (dancehall, hip-hop, reggaeton) that are already more popular.</figcaption>
     </figure>
     <div class="callout">
       <span class="k">A second self-caught error</span>
@@ -253,8 +253,8 @@
     <h2>Same story, four different ways of counting "featured"</h2>
     <p class="lede">Alternate detection rules, excluding the popularity = 0 spike, and excluding remix/live/acoustic/remaster versions &mdash; the adjusted effect stays between roughly zero and half a point every time.</p>
     <figure class="figure">
-      <img src="assets/figures/fig4_effect_across_specs.png" alt="Forest plot of the featured-artist effect across raw comparison, both regression specs, and four robustness variants">
-      <figcaption>The estimated effect shrinks toward zero as controls improve, and stays there under every alternative sample definition.</figcaption>
+      <div class="chart-panel" id="chart-fig4"></div>
+      <figcaption>The estimated effect shrinks toward zero as controls improve, and stays there under every alternative sample definition. Hover any point for its estimate and 95% CI.</figcaption>
     </figure>
   </div>
 </section>
@@ -348,6 +348,8 @@
   </div>
 </footer>
 
+<script src="assets/js/data.js"></script>
+<script src="assets/js/charts.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>
