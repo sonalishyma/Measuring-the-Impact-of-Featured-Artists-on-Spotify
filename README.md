@@ -1,6 +1,9 @@
 # Do Collaborations Make Songs More Popular on Spotify?
 
+Check it out here: https://sonalishyma.github.io/Impact-of-Featured-Spotify-Artists/ 
 **Measuring the featured-artist effect with proper controls — and catching our own overclaim.**
+
+
 
 Featured tracks look more popular than solo tracks on Spotify (p ≈ 1e-26). This project shows that the gap is **tiny (+1.4 points on a 0–100 scale, Cohen's d ≈ 0.07)** and that **99% of it is genre composition, not collaboration**: featured tracks simply sit in genres that are more popular. Inside the same genre, the featured-vs-solo gap is **+0.02 points — effectively zero**. With genre and audio-feature controls, the estimated effect is **+0.28 points (95% CI −0.01 to +0.57, p = 0.06)** and stays between roughly zero and half a point across every robustness check.
 
